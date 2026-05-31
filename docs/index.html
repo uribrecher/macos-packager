@@ -4,78 +4,84 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>macos-packager — Sounds &amp; Recreation</title>
-<meta name="description" content="Bundle the whole Sounds & Recreation system into a single macOS .app/.dmg. (Planned / WIP.)">
+<meta name="description" content="Bundles the Sounds & Recreation runtime into a single macOS app — one-click bring-up of the whole stack.">
 <meta property="og:title" content="macos-packager — Sounds &amp; Recreation">
 <meta property="og:description" content="Bundle the whole system into one macOS app. (Planned.)">
 <meta property="og:image" content="https://uribrecher.github.io/sounds-and-recreation/assets/img/hero.png">
 <link rel="icon" href="site-assets/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="site-assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="site-assets/favicon-16.png">
-  <link rel="icon" type="image/svg+xml" href="site-assets/favicon.svg">
+<link rel="icon" type="image/svg+xml" href="site-assets/favicon.svg">
 <link rel="apple-touch-icon" href="site-assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site-assets/brand.css">
-<style>:root{--accent:#f7c948}</style>
+<style>
+  .bundle{max-width:760px;margin:8px auto 0;border:2px dashed var(--accent);border-radius:18px;
+    padding:26px 22px 22px;position:relative;background:rgba(247,201,72,.06)}
+  .bundle .cap{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--cream2);
+    border:1px solid var(--line);border-radius:999px;padding:4px 16px;font-family:"JetBrains Mono",monospace;
+    font-size:12px;color:var(--accent-ink);font-weight:600;white-space:nowrap}
+</style>
 </head>
-<body>
+<body style="--accent:#f7c948;--accent-ink:#b07c06;--accent-soft:#fbf0cd">
 
 <nav class="nav">
-  <a class="brand" href="https://uribrecher.github.io/sounds-and-recreation/"><img src="site-assets/mark.webp" alt=""> Sounds &amp; Recreation</a>
+  <a class="brand" href="https://uribrecher.github.io/sounds-and-recreation/"><img src="site-assets/mark.png" alt=""> Sounds &amp; Recreation</a>
   <div class="nav-links">
     <a href="https://uribrecher.github.io/sounds-and-recreation/#repos">All repos</a>
-    <a class="ghbtn" href="https://github.com/uribrecher/macos-packager">★ GitHub</a>
+    <a class="ghbtn" href="https://github.com/uribrecher">★ GitHub</a>
   </div>
 </nav>
 
-<header class="repo-hero wrap">
-  <span class="lang">Bash / Electron</span><span class="wip">Status: planned</span>
+<header class="hero wrap">
+  <div class="glow"></div>
+  <span class="lang">Tooling · macOS</span><span class="wip">Early development</span>
   <h1>macos-packager</h1>
-  <p class="lead">Will bundle keyboards-mcp, audio-analysis-mcp, and sound-recreation-agent into a single macOS <code>.app</code>/<code>.dmg</code> — one-click bring-up of the whole stack.</p>
+  <p class="lead">Bundles the runtime pieces of Sounds &amp; Recreation into a single macOS app — a one-click bring-up of the whole stack, so you can run the pipeline without wiring services together by hand.</p>
+  <div class="chips">
+    <span class="chip"><span class="dot"></span> One-click bring-up</span>
+    <span class="chip"><span class="dot"></span> .app / .dmg</span>
+    <span class="chip"><span class="dot"></span> macOS</span>
+  </div>
   <div class="cta">
-    <a class="btn primary" href="https://github.com/uribrecher/macos-packager">★ View on GitHub</a>
-    <a class="btn ghost" href="https://github.com/uribrecher/macos-packager/blob/main/8d-macos-packager.md">Read the plan</a>
+    <a class="btn primary" href="https://github.com/uribrecher">★ View on GitHub</a>
+    <a class="btn ghost" href="https://uribrecher.github.io/sounds-and-recreation/#repos">Back to the collection</a>
   </div>
 </header>
 
 <section class="section">
   <div class="wrap">
-    <div class="label">What it will do</div>
-    <h2>One app for the whole pipeline</h2>
-    <p class="sub">Currently a scaffold plan. It will clone and build each runtime component, assemble an Electron <code>.app</code> bundle, and package a signed, notarized <code>.dmg</code> — so the whole system installs and launches in one step.</p>
+    <div class="label">What it does</div>
+    <h2>The whole stack in one app</h2>
+    <p class="sub">Instead of starting a Node server, a Python venv and an agent by hand, the packager wraps them into a single distributable macOS application.</p>
     <div class="feat">
-      <div class="item"><strong><code>build-all.sh</code></strong><br>Clone + build each runtime component</div>
-      <div class="item"><strong><code>package.sh</code></strong><br>Assemble the Electron <code>.app</code> and package a <code>.dmg</code></div>
-      <div class="item"><strong>Signed &amp; notarized</strong><br>macOS <code>codesign</code> + <code>notarytool</code></div>
-      <div class="item"><strong>Tagged releases</strong><br>GitHub Actions build on <code>v*</code> tags</div>
-      <div class="item"><strong>Bundles all three</strong><br>keyboards-mcp + audio-analysis-mcp + sound-recreation-agent</div>
-      <div class="item"><strong>Status: planned</strong><br>The repo currently holds the implementation plan; scripts land next.</div>
+      <div class="item"><strong>Bundle the runtime</strong><p>Packages the agent server plus both MCP servers into one self-contained app.</p></div>
+      <div class="item"><strong>One-click launch</strong><p>Brings the full pipeline up on launch — no terminal, no manual service wiring.</p></div>
+      <div class="item"><strong>Manages the services</strong><p>Coordinates keyboards-mcp (Node) and audio-analysis-mcp (Python) under one roof.</p></div>
+      <div class="item"><strong>Distributable output</strong><p>Produces a macOS <code>.app</code> / <code>.dmg</code> you can hand to someone to just run.</p></div>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="section alt center">
   <div class="wrap">
-    <div class="label">In the pipeline</div>
-    <h2>Where it fits</h2>
-    <div class="flow">
-      <span class="node">Audio</span>→<span class="node">Analysis</span>→<span class="node">Agent</span>→<span class="node">MIDI</span>→<span class="node">Synth</span>
-    </div>
-    <p class="sub" style="margin-top:16px"><strong>Packaging</strong> — wraps the entire pipeline above into one installable macOS app.</p>
-    <div class="linkrow">
-      <a href="https://github.com/uribrecher/macos-packager">GitHub</a>
-      <a href="https://github.com/uribrecher/macos-packager/blob/main/8d-macos-packager.md">The plan</a>
-      <a href="https://uribrecher.github.io/sounds-and-recreation/">← The collection</a>
+    <div class="label">Where it fits</div>
+    <h2>The wrapper around everything</h2>
+    <p class="sub">macos-packager doesn't sit in the signal path — it packages the whole path into one app.</p>
+    <div class="bundle">
+      <span class="cap">Sounds &amp; Recreation.app</span>
+      <div class="flow" style="margin-top:0">
+        <span class="node">Audio</span>→<span class="node">Analysis</span>→<span class="node">Agent</span>→<span class="node">MIDI</span>→<span class="node">Synth</span>
+      </div>
     </div>
   </div>
 </section>
 
 <footer class="footer">
-  <div class="wrap">
-    <div class="brand"><img src="site-assets/mark.webp" alt=""> <span>Sounds &amp; Recreation</span></div>
-    Open-source audio recreation · GPL-3.0 · <a href="https://github.com/uribrecher">GitHub</a>
-  </div>
+  <div class="fb"><img src="site-assets/mark.png" alt=""> Sounds &amp; Recreation</div>
+  Open-source audio recreation · GPL-3.0 · <a href="https://github.com/uribrecher">GitHub</a> · <a href="https://uribrecher.github.io/sounds-and-recreation/#repos">The collection</a>
 </footer>
 
 </body>
