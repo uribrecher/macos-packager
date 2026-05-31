@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>macos-packager — Sounds &amp; Recreation</title>
+<meta name="description" content="Bundle the whole Sounds & Recreation system into a single macOS .app/.dmg. (Planned / WIP.)">
+<meta property="og:title" content="macos-packager — Sounds & Recreation">
+<meta property="og:description" content="Bundle the whole system into one macOS app. (Planned.)">
+<meta property="og:image" content="https://uribrecher.github.io/sounds-and-recreation/assets/img/hero.png">
+<link rel="icon" href="site-assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="site-assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="site-assets/favicon-16.png">
+<link rel="apple-touch-icon" href="site-assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site-assets/brand.css">
+<style>:root{--accent:#f7c948}</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="brand" href="https://uribrecher.github.io/sounds-and-recreation/"><img src="site-assets/mark.webp" alt="Sounds & Recreation logo"> Sounds &amp; Recreation</a>
+  <div class="nav-links">
+    <a href="https://uribrecher.github.io/sounds-and-recreation/#repos">All repos</a>
+    <a class="ghbtn" href="https://github.com/uribrecher/macos-packager">★ GitHub</a>
+  </div>
+</nav>
+
+<header class="repo-hero wrap">
+  <span class="lang">Bash / Electron</span><span class="wip">Status: planned</span>
+  <h1>macos-packager</h1>
+  <p class="lead">Will bundle keyboards-mcp, audio-analysis-mcp, and sound-recreation-agent into a single macOS <code>.app</code>/<code>.dmg</code> — one-click bring-up of the whole stack.</p>
+  <div class="cta">
+    <a class="btn primary" href="https://github.com/uribrecher/macos-packager">★ View on GitHub</a>
+    <a class="btn ghost" href="https://github.com/uribrecher/macos-packager/blob/main/8d-macos-packager.md">Read the plan</a>
+  </div>
+</header>
+
+<section class="section">
+  <div class="wrap">
+    <div class="label">What it will do</div>
+    <h2>One app for the whole pipeline</h2>
+    <p class="sub">Currently a scaffold plan. It will clone and build each runtime component, assemble an Electron <code>.app</code> bundle, and package a signed, notarized <code>.dmg</code> — so the whole system installs and launches in one step.</p>
+    <div class="feat">
+      <div class="item"><strong><code>build-all.sh</code></strong><br>Clone + build each runtime component</div>
+      <div class="item"><strong><code>package.sh</code></strong><br>Assemble the Electron <code>.app</code> and package a <code>.dmg</code></div>
+      <div class="item"><strong>Signed &amp; notarized</strong><br>macOS <code>codesign</code> + <code>notarytool</code></div>
+      <div class="item"><strong>Tagged releases</strong><br>GitHub Actions build on <code>v*</code> tags</div>
+      <div class="item"><strong>Bundles all three</strong><br>keyboards-mcp + audio-analysis-mcp + sound-recreation-agent</div>
+      <div class="item"><strong>Status: planned</strong><br>The repo currently holds the implementation plan; scripts land next.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="label">In the pipeline</div>
+    <h2>Where it fits</h2>
+    <div class="flow">
+      <span class="node">Audio</span>→<span class="node">Analysis</span>→<span class="node">Agent</span>→<span class="node">MIDI</span>→<span class="node">Synth</span>
+    </div>
+    <p class="sub" style="margin-top:16px"><strong>Packaging</strong> — wraps the entire pipeline above into one installable macOS app.</p>
+    <div class="linkrow">
+      <a href="https://github.com/uribrecher/macos-packager">GitHub</a>
+      <a href="https://github.com/uribrecher/macos-packager/blob/main/8d-macos-packager.md">The plan</a>
+      <a href="https://uribrecher.github.io/sounds-and-recreation/">← The collection</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="brand"><img src="site-assets/mark.webp" alt=""> <span>Sounds &amp; Recreation</span></div>
+    Open-source audio recreation · GPL-3.0 · <a href="https://github.com/uribrecher">GitHub</a>
+  </div>
+</footer>
+
+</body>
+</html>
